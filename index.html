@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio Inclusivo sobre la Discapacidad</title>
+    <style>
+       :root {
+    --bg-color: #f4f7f9;
+    --card-bg: #ffffff;
+    --primary-blue: #0f4c81;
+    --accent-teal: #00a896;
+    --text-main: #2c3e50;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Header / Portada */
+.hero-card, .page-card {
+    background-color: var(--card-bg);
+    border-top: 6px solid var(--primary-blue);
+    border-radius: var(--radius);
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.materia-title {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-teal);
+    font-weight: 700;
+}
+
+.logo-uni {
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+.main-title {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.team-list {
+    list-style: none;
+    margin-top: 5px;
+}
+
+.team-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 4px;
+}
+
+.team-list li::before {
+    content: "•";
+    color: var(--accent-teal);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.group-info {
+    text-align: right;
+    border-left: 2px solid var(--border-color);
+    padding-left: 20px;
+}
+
+/* Secciones generales */
+.section-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+h2.section-title {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
+
+h2.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 22px;
+    background-color: var(--accent-teal);
+    border-radius: 3px;
+}
+
+.section-block {
+    margin-bottom: 20px;
+}
+
+.section-block p {
+    color: var(--text-main);
+    font-size: 1rem;
+    text-align: left;
+}
+
+.section-divider {
+    margin: 30px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.subsection-title {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+}
+
+/* Tarjetas de Instituciones */
+.institution-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.institution-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.inst-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--bg-color);
+    padding-bottom: 12px;
+}
+
+.inst-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+}
+
+.inst-logo {
+    max-width: 200px;
+    max-height: 90px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.inst-details p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.badge {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.link-ref {
+    color: var(--accent-teal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-ref:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- PORTADA -->
+    <div class="page-card">
+        <div class="header-top">
+            <div class="materia-title">
+                Materia: Discapacidad y sociedad
+            </div>
+            <!-- Logo Institucional -->
+            <img src="img/ateneo.png" alt="Logo Universidad ATENSO" class="logo-uni">
+        </div>
+
+        <h1 class="main-title">Directorio inclusivo sobre la discapacidad</h1>
+
+        <div class="meta-info">
+            <div>
+                <strong>Realizado por:</strong>
+                <ul class="team-list">
+                    <li>Cortés Robles Edna Narayama</li>
+                    <li>Ramírez Mendoza Jonathan Jehudiel</li>
+                    <li>Sharon Idaly Eligió Miguel</li>
+                    <li>Sanc Zorrilla Michael Ariel</li>
+                    <li>Sandoval Miranda Lander Gabriel</li>
+                </ul>
+            </div>
+            <div class="group-info">
+                <p>1er semestre.</p>
+                <p>Grupo "B"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTRODUCCIÓN Y PROPÓSITO -->
+    <div class="page-card">
+        <div class="section-block">
+            <h2 class="section-title">Introducción</h2>
+            <p>
+                La discapacidad forma parte de la diversidad de la sociedad y puede presentarse de diferentes maneras. Las personas con discapacidad tienen derecho a recibir atención, servicios, información y oportunidades que favorezcan su bienestar, autonomía, participación e inclusión social.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2 class="section-title">Propósito</h2>
+            <p>
+                Este directorio inclusivo tiene como propósito reunir información de organizaciones e instituciones que brindan apoyo a personas con discapacidad. Se incluyen datos como el nombre de organización, dirección, teléfono y servicios que ofrece, para facilitar el acceso a recursos de orientación, atención, rehabilitación, inclusión y defensas de derechos a nivel estatal (Oaxaca), nivel nacional (México) y a nivel mundial.
+            </p>
+        </div>
+    </div>
+
+    <!-- DESARROLLO DEL PROYECTO - PARTE 1 -->
+    <div class="page-card">
+        <h2 class="section-title">Desarrollo del Proyecto</h2>
+        <div class="subsection-title">DIRECTORIO LOCAL — ESTADO DE OAXACA</div>
+        <p><em>Instituciones</em></p>
+
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">1. SISTEMA DIF OAXACA</div>
+                <img src="img/dif-oaxaca.png" alt="Logo DIF Oaxaca" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Vicente Guerrero No. 114, Col. Miguel Alemán, Oaxaca de Juárez, Oaxaca.</p>
+                <p><strong>Teléfono:</strong> 951 501 5050</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Brinda programas de asistencia social y atención a personas con discapacidad. Cuenta con diferentes servicios, entre ellos apoyos funcionales, rehabilitación y atención especializada. (<a href="http://difoaxaca.gob.mx" target="_blank" class="link-ref">difoaxaca.gob.mx</a>)</p>
+            </div>
+        </div>
+    <!-- Continúa en la Parte 2 -->
+    <!-- 2. CREE -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">2. CENTRO DE REHABILITACIÓN Y EDUCACIÓN ESPECIAL (CREE)</div>
+                <img src="img/cree-oaxaca.png" alt="Logo CREE Oaxaca" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> San Bartolo Coyotepec</p>
+                <p><strong>Dirección:</strong> Séptima Privada de Aldama s/n, San Bartolo Coyotepec, Oaxaca.</p>
+                <p><strong>Teléfono:</strong> 951 551 0586</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Ofrece medicina física y de rehabilitación, audiología, psicología, odontología, terapia física, terapia ocupacional, terapia de lenguaje, trabajo social y laboratorio de órtesis y prótesis. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)</p>
+            </div>
+        </div>
+
+        <!-- 3. CRI DIF BIENESTAR -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">3. CENTRO DE REHABILITACIÓN INTEGRAL DIF BIENESTAR Y CUIDADOS PARA OAXACA</div>
+                <img src="img/cri-dif-bienestar.png" alt="Logo CRI DIF Bienestar" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Estado:</strong> Oaxaca</p>
+                <p><strong>Institución:</strong> Sistema DIF Oaxaca</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Brinda atención de segundo nivel a personas con discapacidad motriz, visual, neuronal y auditiva; así como a personas con discapacidades temporales o permanentes. Cuenta con servicios de rehabilitación y neurorehabilitación. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)</p>
+            </div>
+        </div>
+
+        <!-- 4. CECYD -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">4. CENTRO DE ATENCIÓN INTEGRAL PARA CIEGOS Y DÉBILES VISUALES (CECYD)</div>
+                <img src="img/cecyd.png" alt="Logo CECYD" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> San Bartolo Coyotepec</p>
+                <p><strong>Dirección:</strong> Séptima Privada de Aldama s/n</p>
+                <p><strong>Teléfono:</strong> 951 350 5355</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Ofrece rehabilitación y talleres para personas con discapacidad visual. Incluye enseñanza de braille, ábaco, máquina Perkins; actividades de la vida diaria, terapia física y visual, computación y música. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)</p>
+            </div>
+        </div>
+
+        <!-- 5. PROCURADURÍA -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">5. PROCURADURÍA DE LA DEFENSA DE LAS PERSONAS CON DISCAPACIDAD</div>
+                <img src="img/procuraduria-discapacidad.png" alt="Logo PROPADCD" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Vicente Guerrero No. 114. Col. Miguel Alemán, Oaxaca de Juárez.</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Brinda protección, orientación y asistencia en asuntos relacionados con los derechos de las personas con discapacidad. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)<br>
+                PROCURADURÍA DE LA DEFENSA DE LAS PERSONAS CON DISCAPACIDAD<br>
+                PROCURADURÍA DE LA DEFENSA DE LAS PERSONAS CON DISCAPACIDAD<br>
+                Address: Vicente Guerrero 114, Miguel Alemán Valdez, 68120 Oaxaca de Juárez, Oax., México</p>
+            </div>
+        </div>
+
+        <!-- 6. CRIT OAXACA -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">6. CENTRO DE REHABILITACIÓN INFANTIL TELETON (CRIT OAXACA)</div>
+                <img src="img/inrlgii.png" alt="Logo CRIT Oaxaca" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> San Raymundo Jalpan, Oaxaca</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Proporciona servicios de rehabilitación e inclusión principalmente para niñas, niños y adolescentes con discapacidad. El CRIT Oaxaca ha participado en programas de rehabilitación para personas con discapacidad en coordinación con instituciones gubernamentales. (<a href="http://www.gob.mx" target="_blank" class="link-ref">Gobierno de México</a>)</p>
+            </div>
+        </div>
+
+        <!-- 7. FUNDACIÓN CORAZÓN DOWN -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">7. FUNDACIÓN CORAZÓN DOWN</div>
+                <img src="img/corazon-down.png" alt="Logo Fundación Corazón Down" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Xicoténcatl 1017, Barrio de la Noria, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 115 3091</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Organización enfocada en la atención y acompañamiento de personas con síndrome de Down y sus familias<br>
+                Fundación Corazón Down<br>
+                Fundación Corazón Down<br>
+                <a href="#" class="link-ref">Web</a><br>
+                Address: Xicoténcatl 1017, Barrio de la Noria, 68100 Oaxaca de Juárez, Oax., México</p>
+            </div>
+        </div>
+
+        <!-- 8. CONSEJO ESTATAL -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">8. CONSEJO ESTATAL DE ORGANIZACIONES DE PERSONAS CON DISCAPACIDAD DEL ESTADO DE OAXACA, A.C.</div>
+                <img src="img/consejo-estatal.png" alt="Logo Consejo Estatal" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Murguía 802, Centro, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 513 8379</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Representa y promueve los intereses de organizaciones y personas con discapacidad en el estado de Oaxaca.<br>
+                Consejo Estatal de Organizaciones de Personas Con Discapacidad del Estado de Oaxaca A.c.<br>
+                Consejo Estatal de Organizaciones de Personas Con Discapacidad del Estado de Oaxaca A.c.<br>
+                Address: Murguía 802, RUTA INDEPENDENCIA, Centro, 68000 Oaxaca de Juárez, Oax., México<br>
+                Phone: +529515138379</p>
+            </div>
+        </div>
+
+        <!-- 9. CORAL -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">9. CORAL — CENTRO OAXAQUEÑO DE REHABILITACIÓN DE AUDICIÓN Y LENGUAJE, A.C.</div>
+                <img src="img/coral.png" alt="Logo CORAL" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Privada de Sierra Negra No. 102, Col. Volcanes, Oaxaca, Oaxaca.</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Está orientado a la atención y rehabilitación relacionada con problemas de audición, lenguaje y comunicación.<br>
+                Fuente: Directorio oficial de organizaciones registradas en Oaxaca: (<a href="#" class="link-ref">Diario Oficial de la Federación</a>)</p>
+            </div>
+        </div>
+
+        <!-- 10. TATO LA -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">10. CENTRO INTERACTIVO DE APOYO Y REHABILITACIÓN PARA PERSONAS CON DISCAPACIDAD TATO LA, A.C.</div>
+                <img src="img/tato-la.png" alt="Logo Tato La CIRPAD" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Huajuapan de León</p>
+                <p><strong>Dirección:</strong> Jazmín No. 27, Col. Jardines del Sur, Huajuapan de León, Oaxaca.</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Ofrece apoyo y servicios relacionados con la rehabilitación y atención de personas con discapacidad.<br>
+                Fuente: Diario Oficial de la Federación, directorio de organizaciones de asistencia. (<a href="#" class="link-ref">Diario Oficial de la Federación</a>)</p>
+            </div>
+        </div>
+
+        <!-- 11. DIF MUNICIPAL OAXACA -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">11. DIF MUNICIPAL DE OAXACA DE JUÁREZ</div>
+                <img src="img/dif-municipal-oaxaca.png" alt="Logo DIF Municipal Oaxaca" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Etapa 6, Infonavit Primero de Mayo, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 400 1149</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Brinda servicios de asistencia social y canalización para personas y familias que requieren apoyo.<br>
+                DIF Municipal de Oaxaca de Juárez<br>
+                DIF Municipal de Oaxaca de Juárez<br>
+                <a href="#" class="link-ref">Web</a><br>
+                Address: Esteban Baca Calderón, 6to Etapa INFONAVIT 1ro de Mayo, 68027 Oaxaca de Juárez, Oax., México<br>
+                Phone: +529514001149</p>
+            </div>
+        </div>
+
+        <!-- 12. CRIO -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">12. CENTRO DE REHABILITACIÓN INTEGRAL DE OAXACA</div>
+                <img src="img/crio.png" alt="Logo CRIO" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Huerto Los Olivos 207, Trinidad de las Huertas, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 103 8709</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Proporciona servicios de fisioterapia y rehabilitación física.<br>
+                Centro de Rehabilitación Integral de Oaxaca<br>
+                Centro de Rehabilitación Integral de Oaxaca<br>
+                <a href="#" class="link-ref">Web</a><br>
+                Address: Huerto Los Olivos 207, Universidad, Trinidad de las Huertas, 68120 Oaxaca de Juárez, Oax., México<br>
+                Phone: +529511038709</p>
+            </div>
+        </div>
+
+        <!-- 13. CENTRO DE REHABILITACIÓN DIF OAXACA -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">13. CENTRO DE REHABILITACIÓN DIF OAXACA</div>
+                <img src="img/centro-rehabilitacion-dif.png" alt="Logo Centro de Rehabilitación DIF" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> San Antonio de la Cal</p>
+                <p><strong>Dirección:</strong> Emiliano Zapata 66, 5.ª Sección Eucaliptos, San Antonio de la Cal, Oaxaca.</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Ofrece servicios relacionados con rehabilitación física para personas que requieren recuperación funcional.<br>
+                Centro de Rehabilitación DIF Oaxaca<br>
+                Centro de Rehabilitación DIF Oaxaca<br>
+                Address: Emiliano Zapata 66, 5ta Seccioneucaliptos, 71235 San Antonio de la Cal, Oax., México</p>
+            </div>
+        </div>
+
+        <!-- 14. CRIFYM -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">14. CENTRO DE REHABILITACIÓN INTEGRAL FÍSICA Y MENTAL DR. JUAN JOSÉ ROSAS SUMANO</div>
+                <img src="img/crifym.png" alt="Logo CRIFYM" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> Sabinos 509, Col. Reforma, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 516 2257</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Ofrece atención médica relacionada con rehabilitación física y mental.<br>
+                Centro de Rehabilitación Integral Física y Mental. Dr. Juan José Rosas Sumano<br>
+                Centro de Rehabilitación Integral Física y Mental. Dr. Juan José Rosas Sumano<br>
+                <a href="#" class="link-ref">Web</a><br>
+                Address: Sabinos 509, Reforma, 68050 Oaxaca de Juárez, Oax., México<br>
+                Phone: +529515162257</p>
+            </div>
+        </div>
+
+        <!-- 15. FISIOLUCIÓN -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">15. FISIOLUCIÓN OAXACA — CENTRO DE TERAPIA FÍSICA Y REHABILITACIÓN</div>
+                <img src="img/fisiolucion.png" alt="Logo Fisiolución Oaxaca" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> C. Pensamientos 404, Col. Reforma, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 470 1782</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Proporciona servicios de terapia física y rehabilitación.<br>
+                Fisiolución Oaxaca - Centro de Terapia Física y Rehabilitación<br>
+                Fisiolución Oaxaca - Centro de Terapia Física y Rehabilitación<br>
+                <a href="#" class="link-ref">Web</a><br>
+                Address: C. Pensamientos 404, Reforma, 68050 Oaxaca de Juárez, Oax., México<br>
+                Phone: +529514701782</p>
+            </div>
+        </div>
+
+        <!-- 16. CLÍNICA RAQUEL -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">16. CLÍNICA DE REHABILITACIÓN RAQUEL</div>
+                <img src="img/clinica-raquel.png" alt="Logo Clínica Raquel" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez</p>
+                <p><strong>Dirección:</strong> C. Pensamientos 708, Col. Reforma, Oaxaca de Juárez.</p>
+                <p><strong>Teléfono:</strong> 951 513 4588</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Ofrece servicios de rehabilitación física y atención terapéutica.<br>
+                Clínica de Rehabilitación Raquel<br>
+                Clínica de Rehabilitación Raquel<br>
+                Address: C. Pensamientos 708, Reforma, 68050 Oaxaca de Juárez, Oax., México<br>
+                Phone: +529515134588</p>
+            </div>
+        </div>
+
+        <!-- 17. UBR HUAJUAPAN -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">17. UNIDAD BÁSICA DE REHABILITACIÓN DE HUAJUAPAN DE LEÓN</div>
+                <img src="img/ubr-huajuapan.png" alt="Logo UBR Huajuapan" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Heroica Ciudad de Huajuapan de León</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Brinda atención de rehabilitación a personas con discapacidad y personas que requieren recuperar o mejorar su movilidad. El DIF Oaxaca ha reportado el equipamiento y funcionamiento de esta UBR. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)</p>
+            </div>
+        </div>
+
+        <!-- 18. UBR MIAHUATLÁN -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">18. UNIDAD BÁSICA DE REHABILITACIÓN DE MIAHUATLÁN DE PORFIRIO DÍAZ</div>
+                <img src="img/ubr-miahuatlan.png" alt="Logo UBR Miahuatlán" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Miahuatlán de Porfirio Díaz</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Proporciona atención a personas con lesiones o discapacidad para ayudar a recuperar o mejorar su movilidad. También se han realizado acciones de entrega de aparatos funcionales para población con discapacidad. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)</p>
+            </div>
+        </div>
+
+        <!-- 19. UBR JUCHITÁN -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">19. UNIDAD BÁSICA DE REHABILITACIÓN DE JUCHITÁN DE ZARAGOZA</div>
+                <img src="img/ubr-juchitan.png" alt="Logo UBR Juchitán" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Heroica Ciudad de Juchitán de Zaragoza</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Cuenta con servicios de rehabilitación que incluyen terapia física, estimulación temprana, nutrición, psicología, medicina general, electroterapia, mecanoterapia e hidroterapia. (<a href="http://www.oaxaca.gob.mx" target="_blank" class="link-ref">Gobierno de Oaxaca</a>)</p>
+            </div>
+        </div>
+
+        <!-- 20. CAM 01 -->
+        <div class="institution-card">
+            <div class="inst-header">
+                <div class="inst-title">20. CENTRO DE ATENCIÓN MÚLTIPLE No. 1 (CAM 01)</div>
+                <img src="img/cam-01.png" alt="Logo CAM 01" class="inst-logo">
+            </div>
+            <div class="inst-details">
+                <p><strong>Municipio:</strong> Oaxaca de Juárez, Oaxaca</p>
+                <p><strong>Dirección:</strong> Avenida Vicente Guerrero s/n, Col. Miguel Alemán, Oaxaca de Juárez, Oaxaca.</p>
+                <p><strong>Teléfono:</strong> 951 514 7670, Cam 01</p>
+                <p><strong>¿Qué apoyo ofrece?</strong><br>
+                Brinda educación especial escolarizada a niñas, niños y jóvenes con discapacidad, discapacidad múltiple o trastornos graves del desarrollo. Los CAM ofrecen atención desde educación inicial hasta secundaria y, en algunos casos, formación para la vida y el trabajo.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Continúa en la Parte 3 -->
+    <!-- ========================================== -->
+    <!-- PARTE 3: DIRECTORIO NACIONAL E INTERNACIONAL -->
+    <!-- ========================================== -->
+
+    <h2 class="section-title">Directorio Nacional --- México</h2>
+
+    <!-- 1. SNDIF -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">1. SISTEMA NACIONAL PARA EL DESARROLLO INTEGRAL DE LA FAMILIA (SNDIF)</div>
+            <img src="img/secretaria-bienestar.png" alt="Logo SNDIF" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Av. Emiliano Zapata No. 340, Col. Santa Cruz Atoyac, Alcaldía Benito Juárez, C.P. 03310, Ciudad de México.</p>
+            <p><strong>Teléfono:</strong> 55 3003 2200</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Brinda servicios de asistencia social, rehabilitación, inclusión y credencialización para personas con discapacidad. El SNDIF también cuenta con módulos para la credencialización de personas con discapacidad.<br>
+            <strong>Fuente:</strong> Gobierno de México — Sistema Nacional DIF. Sitio oficial del SNDIF</p>
+        </div>
+    </div>
+
+    <!-- 2. FUNDACIÓN TELETÓN MÉXICO -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">2. FUNDACIÓN TELETÓN MÉXICO</div>
+            <img src="img/teleton-mx.png" alt="Logo Fundación Teletón México" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Vía Gustavo Baz No. 219, Col. San Pedro Barrientos, C.P. 54010, Tlalnepantla, Estado de México.</p>
+            <p><strong>Teléfono:</strong> 55 5321 2223</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Rehabilitación y atención integral para niñas, niños y adolescentes con discapacidad, además de servicios relacionados con autismo. Cuenta con Centros de Rehabilitación e Inclusión Teletón (CRIT).<br>
+            <strong>Fuente:</strong> Fundación Teletón México, sitio oficial 2026. Fundación Teletón México</p>
+        </div>
+    </div>
+
+    <!-- 3. APAC -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">3. APAC, I.A.P. — ASOCIACIÓN PRO PERSONAS CON PARÁLISIS CEREBRAL</div>
+            <img src="img/apac.png" alt="Logo APAC" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Dr. Arce No. 104, Col. Doctores, Alcaldía Cuauhtémoc, C.P. 06720, Ciudad de México.</p>
+            <p><strong>Teléfono:</strong> 55 9172 4620</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Rehabilitación y servicios de salud, educación integral, atención temprana y capacitación laboral para personas con parálisis cerebral.<br>
+            <strong>Fuente:</strong> APAC, sitio oficial. APAC</p>
+        </div>
+    </div>
+
+    <!-- 4. CONFE -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">4. CONFE — CONFEDERACIÓN MEXICANA DE ORGANIZACIONES EN FAVOR DE LA PERSONA CON DISCAPACIDAD INTELECTUAL</div>
+            <img src="img/confe.png" alt="Logo CONFE" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Biznaga No. 43, Col. Belem de las Flores, Álvaro Obregón, C.P. 01110, Ciudad de México.</p>
+            <p><strong>Teléfonos:</strong> 55 6732 6600 / 55 3997 8743 / 55 5292 1390</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Orientación a personas y familias, intervención temprana, capacitación, inclusión laboral y vinculación con organizaciones que trabajan por las personas con discapacidad intelectual.<br>
+            <strong>Fuente:</strong> CONFE, Directorio institucional. CONFE</p>
+        </div>
+    </div>
+
+    <!-- 5. VIDA INDEPENDIENTE MÉXICO -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">5. VIDA INDEPENDIENTE MÉXICO</div>
+            <img src="img/vida-independiente.png" alt="Logo Vida Independiente México" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Ciudad de México. Oficina: consultar ubicación actual directamente con la organización.</p>
+            <p><strong>Teléfono:</strong> 55 4171 1220</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Promueve la vida independiente, autonomía, inclusión y participación social de personas con discapacidad, especialmente personas con discapacidad motriz.<br>
+            <strong>Fuente:</strong> Vida Independiente México — Directorio institucional. Vida Independiente México</p>
+        </div>
+    </div>
+
+    <!-- 6. CNDH -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">6. COMISIÓN NACIONAL DE LOS DERECHOS HUMANOS (CNDH)</div>
+            <img src="img/cndh.png" alt="Logo CNDH" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Periférico Sur No. 3469, esquina Luis Cabrera, Col. San Jerónimo Lídice, Alcaldía Magdalena Contreras, C.P. 10200, Ciudad de México.</p>
+            <p><strong>Teléfonos:</strong> 55 5681 8725 / 55 5490 7400 / 800 715 2000</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Orientación y asesoría sobre los derechos humanos de las personas con discapacidad y atención de posibles violaciones a sus derechos.<br>
+            <strong>Fuente:</strong> CNDH — Mecanismo de discapacidad. CNDH</p>
+        </div>
+    </div>
+
+    <!-- 7. IMEDIS -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">7. INSTITUTO MEXIQUENSE PARA LA DISCAPACIDAD (IMEDIS)</div>
+            <img src="img/imedis.png" alt="Logo IMEDIS" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Calle José Vicente Villada No. 423, Col. Francisco Murguía, C.P. 50130, Toluca, Estado de México.</p>
+            <p><strong>Teléfono:</strong> 722 215 4317</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Orientación, vinculación y atención relacionada con discapacidad. También mantiene una red de instituciones que atienden diferentes tipos de discapacidad.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de México — IMEDIS. IMEDIS</p>
+        </div>
+    </div>
+
+    <!-- 8. INGUDIS -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">8. INSTITUTO GUANAJUATENSE PARA LAS PERSONAS CON DISCAPACIDAD (INGUDIS)</div>
+            <img src="img/ingudis.png" alt="Logo INGUDIS" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Hacienda Silao No. 900, Col. La Hacienda, C.P. 36000, Silao, Guanajuato.</p>
+            <p><strong>Teléfono:</strong> 472 117 9330</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Rehabilitación, terapia física y ocupacional, psicología, audiología, nutrición, órtesis y prótesis, certificados y credenciales de discapacidad e inclusión laboral.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Guanajuato — INGUDIS. INGUDIS</p>
+        </div>
+    </div>
+
+    <!-- 9. ISIPD -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">9. INSTITUTO SUDCALIFORNIANO PARA LA INCLUSIÓN DE LAS PERSONAS CON DISCAPACIDAD (ISIPD)</div>
+            <img src="img/isipd.png" alt="Logo ISIPD" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Km 4.5 Carretera al Norte, entre Blvd. Luis Donaldo Colosio y Politécnico Nacional, Col. El Conchalito, C.P. 23090, La Paz, Baja California Sur.</p>
+            <p><strong>Teléfono:</strong> 612 688 2271</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Promueve la inclusión, derechos y atención de las personas con discapacidad en Baja California Sur.<br>
+            <strong>Fuente:</strong> Plataforma Estatal de Transparencia de Baja California Sur. Actualización: 11 de agosto de 2026. ISIPD Baja California Sur</p>
+        </div>
+    </div>
+
+    <!-- 10. INCODIS -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">10. INSTITUTO COLIMENSE PARA LA DISCAPACIDAD (INCODIS)</div>
+            <img src="img/incodis.png" alt="Logo INCODIS" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Calle Encino No. 530, Rinconada del Pereyra, Colima, Colima.</p>
+            <p><strong>Teléfonos:</strong> 312 313 9933 / 312 312 9260</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Apoyos funcionales, orientación y servicios relacionados con inclusión y atención a personas con discapacidad.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Colima. Un documento oficial de 2026 confirma ambos teléfonos y el domicilio. Gobierno de Colima — INCODIS</p>
+        </div>
+    </div>
+
+    <!-- 11. IIPEDEY -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">11. INSTITUTO PARA LA INCLUSIÓN DE LAS PERSONAS CON DISCAPACIDAD DEL ESTADO DE YUCATÁN (IIPEDEY)</div>
+            <img src="img/iipedey.jpeg" alt="Logo IIPEDEY" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Calle 86B No. 499C entre 59 y 61, Centro, C.P. 97000, Mérida, Yucatán. Ex Penitenciaría Juárez.</p>
+            <p><strong>Teléfono:</strong> 999 930 3340 ext. 23052</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Promueve la inclusión y el desarrollo de las personas con discapacidad, así como sus derechos y programas de atención.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Yucatán — IIPEDEY. IIPEDEY</p>
+        </div>
+    </div>
+
+    <!-- 12. CREE - DIF NUEVO LEÓN -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">12. CENTRO DE REHABILITACIÓN Y EDUCACIÓN ESPECIAL (CREE) — DIF NUEVO LEÓN</div>
+            <img src="img/dif-nl.png" alt="Logo DIF Nuevo León" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Av. Lázaro Cárdenas No. 3701, Col. Valle de las Brisas, Monterrey, Nuevo León.</p>
+            <p><strong>Teléfonos:</strong> 81 2020 8034 / 81 2020 8152</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Brinda servicios de rehabilitación y cuenta con programas de inclusión. También ofrece cursos de Lengua de Señas Mexicana (LSM) y trabaja en la inclusión laboral de personas con discapacidad. El Gobierno de Nuevo León publicó información sobre sus actividades durante 2026.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Nuevo León — Sistema DIF Nuevo León.</p>
+        </div>
+    </div>
+
+    <!-- 13. INSTITUTO DE DISCAPACIDAD DE ZACATECAS -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">13. INSTITUTO PARA LA ATENCIÓN E INCLUSIÓN DE LAS PERSONAS CON DISCAPACIDAD DE ZACATECAS</div>
+            <img src="img/mvs-radio.png" alt="Logo Instituto de Discapacidad de Zacatecas" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Ciudad Administrativa, Edificio K, 2.º piso, Circuito Cerro del Gato, C.P. 98160, Zacatecas, Zacatecas.</p>
+            <p><strong>Teléfono:</strong> 492 491 5000 ext. 46100</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Atención, orientación, credencialización y programas destinados a favorecer la inclusión de las personas con discapacidad.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Zacatecas.</p>
+        </div>
+    </div>
+
+    <!-- 14. FUNDACIÓN MVS RADIO -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">14. FUNDACIÓN MVS RADIO</div>
+            <img src="img/mvs-radio (2).png" alt="Logo Fundación MVS Radio" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Mariano Escobedo No. 532, Col. Anzures, C.P. 11590, Ciudad de México.</p>
+            <p><strong>Teléfono:</strong> 800 ESCUCHA — 800 372 8242</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Apoya a personas con discapacidad auditiva mediante programas de inclusión y ayudas auditivas.<br>
+            <strong>Fuente:</strong> Fundación MVS Radio.</p>
+        </div>
+    </div>
+
+    <!-- 15. FUNDACIÓN JOHN LANGDON DOWN -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">15. FUNDACIÓN JOHN LANGDON DOWN, A.C.</div>
+            <img src="img/langdon-down.png" alt="Logo Fundación John Langdon Down" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Selva No. 4, Col. Insurgentes Cuicuilco, Alcaldía Coyoacán, Ciudad de México.</p>
+            <p><strong>Teléfono:</strong> 55 5666 8580</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Atención, educación y apoyo especializado para personas con síndrome de Down y sus familias.<br>
+            <strong>Fuente:</strong> Fundación John Langdon Down.</p>
+        </div>
+    </div>
+
+    <!-- 16. INCLUSIÓN JALISCO -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">16. DIRECCIÓN DE INCLUSIÓN A PERSONAS CON DISCAPACIDAD DE JALISCO</div>
+            <img src="img/jalisco-inclusion.png" alt="Logo Inclusión Jalisco" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Calle Jesús García No. 720, Col. Centro, Guadalajara, Jalisco.</p>
+            <p><strong>Teléfono:</strong> 33 3169 2655</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Orientación y acciones para promover los derechos, accesibilidad e inclusión de las personas con discapacidad.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Jalisco.</p>
+        </div>
+    </div>
+
+    <!-- 17. CRISVER VERACRUZ -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">17. CENTRO DE REHABILITACIÓN E INCLUSIÓN SOCIAL DE VERACRUZ (CRISVER)</div>
+            <img src="img/crisver.png" alt="Logo CRISVER" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Km 1.5 Carretera Xalapa–Coatepec, Col. Benito Juárez, C.P. 91070, Xalapa, Veracruz.</p>
+            <p><strong>Teléfono:</strong> 228 842 3730 / 228 842 3737</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Servicios de rehabilitación e inclusión para personas con discapacidad, incluyendo atención especializada y terapias.<br>
+            <strong>Fuente:</strong> Gobierno del Estado de Veracruz.</p>
+        </div>
+    </div>
+
+    <!-- 18. DIF SONORA -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">18. DIF SONORA — ATENCIÓN A PERSONAS CON DISCAPACIDAD</div>
+            <img src="img/dif-sonora.png" alt="Logo DIF Sonora" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Ignacio Romero y Blvd. Luis Encinas, Col. San Benito, C.P. 83190, Hermosillo, Sonora.</p>
+            <p><strong>Teléfono:</strong> 662 210 9389</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Programas de atención, rehabilitación y apoyos dirigidos a personas con discapacidad.<br>
+            <strong>Fuente:</strong> Sistema DIF Sonora — información institucional 2026.</p>
+        </div>
+    </div>
+
+    <!-- 19. INRLGII -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">19. INSTITUTO NACIONAL DE REHABILITACIÓN LUIS GUILLERMO IBARRA IBARRA (INRLGII)</div>
+            <img src="img/inrlgii.png" alt="Logo INRLGII" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Calzada México-Xochimilco No. 289, Col. Arenal de Guadalupe, Alcaldía Tlalpan, C.P. 14389, Ciudad de México.</p>
+            <p><strong>Teléfono:</strong> 55 5999 1000</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Brinda atención médica y servicios especializados de rehabilitación para personas con discapacidad. También ofrece formación para cuidadores de personas con discapacidad, incluyendo técnicas de movilidad, atención segura, manejo de órtesis y prótesis y autocuidado. En 2026, la Secretaría de Salud informó sobre sus programas de capacitación para cuidadores.<br>
+            <strong>Fuente:</strong> Secretaría de Salud — Instituto Nacional de Rehabilitación Luis Guillermo Ibarra Ibarra, 2026.</p>
+        </div>
+    </div>
+
+    <!-- 20. CONADIS -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">20. CONSEJO NACIONAL PARA EL DESARROLLO Y LA INCLUSIÓN DE LAS PERSONAS CON DISCAPACIDAD (CONADIS)</div>
+            <img src="img/conadis.png" alt="Logo CONADIS" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Dirección:</strong> Av. Paseo de la Reforma No. 51, piso 15, Col. Tabacalera, C.P. 06030, Ciudad de México.</p>
+            <p><strong>Teléfono:</strong> Consultar el contacto institucional vigente en el portal oficial.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Coordina y promueve políticas públicas para garantizar los derechos, inclusión y participación de las personas con discapacidad en México.<br>
+            <strong>Fuente:</strong> Gobierno de México — CONADIS. El portal institucional mantiene publicaciones y documentación actualizada durante 2026.</p>
+        </div>
+    </div>
+
+    <!-- ORGANIZACIONES INTERNACIONALES -->
+    <!-- ========================================== -->
+    <!-- PARTE 4: ORGANIZACIONES A NIVEL MUNDIAL -->
+    <!-- ========================================== -->
+
+    <h2 class="section-title">Organizaciones a Nivel Mundial</h2>
+
+    <!-- 1. ORGANIZACIÓN MUNDIAL DE LA SALUD (OMS) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">1. ORGANIZACIÓN MUNDIAL DE LA SALUD (OMS)</div>
+            <img src="img/oms.png" alt="Logo Organización Mundial de la Salud" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Avenue Appia 20, 1211 Ginebra, Suiza.</p>
+            <p><strong>Teléfono:</strong> +41 22 791 21 11</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Trabaja a nivel mundial para mejorar la salud y el bienestar de las personas con discapacidad, promover la rehabilitación, la accesibilidad y la inclusión dentro de los sistemas de salud. La OMS impulsa la iniciativa Rehabilitation 2030.<br>
+            <strong>Fuente:</strong> Organización Mundial de la Salud</p>
+        </div>
+    </div>
+
+    <!-- 2. NACIONES UNIDAS (ONU) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">2. NACIONES UNIDAS (ONU) — DISCAPACIDAD E INCLUSIÓN</div>
+            <img src="img/onu.png" alt="Logo Naciones Unidas" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Nueva York, Estados Unidos.</p>
+            <p><strong>Teléfono:</strong> +1 212 963 1234</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Promueve los derechos humanos, la igualdad y la inclusión de las personas con discapacidad a nivel mundial. La ONU cuenta con una Estrategia de Inclusión de la Discapacidad para mejorar la inclusión dentro de su trabajo y programas.<br>
+            <strong>Fuente:</strong> Naciones Unidas — Disability Inclusion Strategy.</p>
+        </div>
+    </div>
+
+    <!-- 3. HUMANITY & INCLUSION (HI) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">3. HUMANITY & INCLUSION (HI)</div>
+            <img src="img/in.png" alt="Logo Humanity & Inclusion" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> 138, avenue des Frères Lumière, CS 88379, 69371 Lyon Cedex 08, Francia.</p>
+            <p><strong>Teléfono:</strong> +33 (0) 4 78 69 79 79</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Trabaja junto a personas con discapacidad y poblaciones vulnerables. Brinda apoyo en rehabilitación, inclusión, atención humanitaria y defensa de los derechos de las personas con discapacidad.<br>
+            <strong>Fuente:</strong> Humanity & Inclusion</p>
+        </div>
+    </div>
+
+    <!-- 4. INCLUSION INTERNATIONAL -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">4. INCLUSION INTERNATIONAL</div>
+            <img src="img/humanity.png" alt="Logo Inclusion International" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> 20 Garrett Street, London EC1Y 0TW, Reino Unido.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Es una red mundial formada por personas con discapacidad intelectual y sus familias. Promueve la participación, igualdad de oportunidades, inclusión comunitaria y defensa de derechos.<br>
+            <strong>Fuente:</strong> Inclusion International.</p>
+        </div>
+    </div>
+
+    <!-- 5. INTERNATIONAL DISABILITY ALLIANCE (IDA) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">5. INTERNATIONAL DISABILITY ALLIANCE (IDA)</div>
+            <img src="img/ida.png" alt="Logo International Disability Alliance" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Ginebra, Suiza.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Es una alianza internacional de organizaciones representativas de personas con discapacidad. Trabaja para promover los derechos humanos, la participación y la aplicación de la Convención de la ONU sobre los Derechos de las Personas con Discapacidad. La OMS la reconoce dentro de sus redes internacionales de discapacidad.<br>
+            <strong>Fuente:</strong> International Disability Alliance.</p>
+        </div>
+    </div>
+
+    <!-- 6. CBM GLOBAL DISABILITY INCLUSION -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">6. CBM GLOBAL DISABILITY INCLUSION</div>
+            <img src="img/cbm.png" alt="Logo CBM Global Disability Inclusion" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Van Heuven Goedhartlaan 13D, 1181 LE Amstelveen, Países Bajos.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional oficial.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Trabaja con personas con discapacidad en países de bajos recursos. Desarrolla programas de inclusión comunitaria, salud ocular, rehabilitación, acción humanitaria y defensa de los derechos de las personas con discapacidad.<br>
+            <strong>Fuente:</strong> CBM Global Disability Inclusion, 2026.</p>
+        </div>
+    </div>
+
+    <!-- 7. REHABILITATION INTERNATIONAL (RI) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">7. REHABILITATION INTERNATIONAL (RI)</div>
+            <img src="img/ri.png" alt="Logo Rehabilitation International" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Nueva York, Estados Unidos.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Promueve la rehabilitación, accesibilidad e inclusión de personas con discapacidad. Participa en iniciativas internacionales relacionadas con derechos, rehabilitación y desarrollo inclusivo. La OMS la incluye entre los miembros de su Disability Health Equity Network.<br>
+            <strong>Fuente:</strong> Rehabilitation International.</p>
+        </div>
+    </div>
+
+    <!-- 8. WORLD FEDERATION OF THE DEAF (WFD) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">8. WORLD FEDERATION OF THE DEAF (WFD)</div>
+            <img src="img/wfd.png" alt="Logo World Federation of the Deaf" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Helsinki, Finlandia.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Representa a personas sordas y organizaciones de personas sordas a nivel mundial. Promueve los derechos humanos, la lengua de señas, la educación y la igualdad de oportunidades para las personas sordas.<br>
+            <strong>Fuente:</strong> World Federation of the Deaf. La OMS la reconoce dentro de sus organizaciones internacionales relacionadas con discapacidad.</p>
+        </div>
+    </div>
+
+    <!-- 9. WORLD BLIND UNION (WBU) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">9. WORLD BLIND UNION (WBU)</div>
+            <img src="img/wbu.png" alt="Logo World Blind Union" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Toronto, Canadá.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Representa a personas ciegas y con discapacidad visual a nivel mundial. Trabaja para promover sus derechos, accesibilidad, educación, empleo y participación plena en la sociedad.<br>
+            <strong>Fuente:</strong> World Blind Union. La OMS la incluye entre las organizaciones de su red internacional sobre discapacidad y equidad en salud.</p>
+        </div>
+    </div>
+
+    <!-- 10. INTERNATIONAL SOCIETY OF PHYSICAL AND REHABILITATION MEDICINE (ISPRM) -->
+    <div class="institution-card">
+        <div class="inst-header">
+            <div class="inst-title">10. INTERNATIONAL SOCIETY OF PHYSICAL AND REHABILITATION MEDICINE (ISPRM)</div>
+            <img src="img/isprm.png" alt="Logo ISPRM" class="inst-logo">
+        </div>
+        <div class="inst-details">
+            <p><strong>Sede:</strong> Organización internacional de medicina física y rehabilitación.</p>
+            <p><strong>Teléfono:</strong> Consultar contacto internacional.</p>
+            <p><strong>¿Qué apoyo ofrece?</strong><br>
+            Promueve la medicina física y de rehabilitación a nivel internacional. Trabaja para mejorar la atención, investigación, educación y práctica profesional relacionada con la rehabilitación y el funcionamiento de las personas. La OMS la incluye entre los miembros de la World Rehabilitation Alliance.<br>
+            <strong>Fuente:</strong> International Society of Physical and Rehabilitation Medicine.</p>
+        </div>
+    </div>
+    <!-- ========================================== -->
+    <!-- PARTE 5: BIBLIOGRAFÍAS -->
+    <!-- ========================================== -->
+
+    <h2 class="section-title">Bibliografías --- Nivel Estatal</h2>
+
+    <div class="bibliography-card">
+        <ol class="bibliography-list">
+            <li><strong>Sistema DIF Oaxaca:</strong> difoaxaca.gob.mx</li>
+            <li><strong>CREE Oaxaca:</strong> Gobierno del Estado de Oaxaca – CREE</li>
+            <li><strong>Centro de Rehabilitación Integral DIF Bienestar:</strong> DIF Oaxaca – Área de Bienestar</li>
+            <li><strong>CECYD:</strong> Gobierno de Oaxaca – CECYD</li>
+            <li><strong>Procuraduría de la Defensa de las Personas con Discapacidad:</strong> Gobierno de Oaxaca – PROPCD</li>
+            <li><strong>CRIT Oaxaca:</strong> Teletón – CRIT</li>
+            <li><strong>Fundación Corazón Down:</strong> fundacioncorazondown.org</li>
+            <li><strong>Consejo Estatal de Organizaciones de Personas con Discapacidad:</strong> No encontré una página oficial vigente.</li>
+            <li><strong>CORAL – Centro Oaxaqueño de Rehabilitación de Audición y Lenguaje:</strong> No encontré una página oficial vigente.</li>
+            <li><strong>Centro Interactivo TATO LA:</strong> No encontré una página oficial vigente.</li>
+            <li><strong>DIF Municipal de Oaxaca de Juárez:</strong> No encontré una página oficial específica vigente.</li>
+            <li><strong>Centro de Rehabilitación Integral de Oaxaca:</strong> No encontré una página oficial institucional vigente.</li>
+            <li><strong>Centro de Rehabilitación DIF Oaxaca:</strong> No encontré una página oficial específica vigente.</li>
+            <li><strong>Centro de Atención Múltiple – IEEPO</strong></li>
+            <li><strong>Centro de Rehabilitación Integral Física y Mental Dr. Juan José Rosas Sumano:</strong> CRIFYM</li>
+            <li><strong>Fisiolución Oaxaca:</strong> No encontré una página web institucional confirmada.</li>
+            <li><strong>Clínica de Rehabilitación Raquel:</strong> No encontré una página web institucional confirmada.</li>
+            <li><strong>Unidad Básica de Rehabilitación de Huajuapan de León:</strong> DIF Municipal de Huajuapan de León</li>
+            <li><strong>Unidad Básica de Rehabilitación de Miahuatlán de Porfirio Díaz:</strong> Gobierno de Oaxaca – UBR Miahuatlán</li>
+            <li><strong>Unidad Básica de Rehabilitación de Juchitán de Zaragoza:</strong> Gobierno de Oaxaca – UBR Juchitán</li>
+        </ol>
+    </div>
+
+    <h2 class="section-title">Bibliografías --- Nivel Nacional</h2>
+
+    <div class="bibliography-card">
+        <ol class="bibliography-list">
+            <li><strong>Gobierno de México. Sistema Nacional DIF.</strong> Credencialización de las personas con discapacidad. 2026. <a href="https://www.gob.mx/difnacional" target="_blank">https://www.gob.mx/difnacional</a></li>
+            <li><strong>Fundación Teletón México.</strong> Teletón México. Consulta 2026. <a href="https://teleton.org" target="_blank">https://teleton.org</a></li>
+            <li><strong>APAC, I.A.P. Asociación Pro Personas con Parálisis Cerebral.</strong> Consulta 2026. <a href="https://apac.mx" target="_blank">https://apac.mx</a></li>
+            <li><strong>CONFE.</strong> Confederación Mexicana de Organizaciones en Favor de la Persona con Discapacidad Intelectual. Consulta 2026.</li>
+            <li><strong>Vida Independiente México.</strong> Directorio institucional. Consulta 2026. <a href="https://vidaindependientemexico.com" target="_blank">https://vidaindependientemexico.com</a></li>
+            <li><strong>Comisión Nacional de los Derechos Humanos. CNDH.</strong> Consulta 2026. <a href="https://www.cndh.org.mx" target="_blank">https://www.cndh.org.mx</a></li>
+            <li><strong>Gobierno del Estado de México.</strong> Instituto Mexiquense para la discapacidad. Consulta 2026. <a href="https://imedis.edomex.gob.mx" target="_blank">https://imedis.edomex.gob.mx</a></li>
+            <li><strong>Gobierno del Estado de Guanajuato.</strong> Instituto Guanajuatense para las Personas con Discapacidad. Consulta 2026. <a href="https://ingudis.guanajuato.gob.mx" target="_blank">https://ingudis.guanajuato.gob.mx</a></li>
+            <li><strong>Gobierno de Baja California Sur.</strong> Instituto Sudcaliforniano para la Inclusión de las Personas con Discapacidad. Actualización 2026. <a href="https://plataforma-transparencia.bcs.gob.mx/instituciones/isipd" target="_blank">https://plataforma-transparencia.bcs.gob.mx/instituciones/isipd</a></li>
+            <li><strong>Gobierno del Estado de Colima.</strong> Instituto Colimense para la Discapacidad. Consulta 2026. <a href="http://www.incodis.col.gob.mx/" target="_blank">http://www.incodis.col.gob.mx/</a></li>
+            <li><strong>Gobierno del Estado de Nuevo León - Sistema DIF Nuevo León.</strong> Consulta 2026. <a href="https://www.nl.gob.mx/es/taxonomy/term/429" target="_blank">https://www.nl.gob.mx/es/taxonomy/term/429</a></li>
+            <li><strong>Gobierno del Estado de Yucatán.</strong> Instituto para la Inclusión de las Personas con Discapacidad del Estado de Yucatán. Consulta 2026. <a href="https://www.yucatan.gob.mx/gobierno/ver_dependencia.php?id=86&amp;utm_source" target="_blank">https://www.yucatan.gob.mx/gobierno/ver_dependencia.php?id=86&amp;utm_source</a></li>
+            <li><strong>Gobierno del Estado de Zacatecas.</strong> Instituto para la Atención e Inclusión de las Personas con Discapacidad. Consulta 2026. <a href="https://www.zacatecas.gob.mx/gobierno/dependencias/inclusion" target="_blank">https://www.zacatecas.gob.mx/gobierno/dependencias/inclusion</a></li>
+            <li><strong>Fundación MVS Radio.</strong> Programas de inclusión para personas con discapacidad auditiva. Consulta 2026. <a href="https://fundacionmvsradio.org" target="_blank">https://fundacionmvsradio.org</a></li>
+            <li><strong>Fundación John Langdon Down, A.C.</strong> Servicios de atención. Consulta 2026. <a href="https://fjldown.org" target="_blank">https://fjldown.org</a></li>
+            <li><strong>Gobierno del Estado de Jalisco.</strong> Dirección de Inclusión a Personas con Discapacidad. Consulta 2026. <a href="https://info.jalisco.gob.mx/area/direccion-de-inclusion-personas-con-discapacidad" target="_blank">https://info.jalisco.gob.mx/area/direccion-de-inclusion-personas-con-discapacidad</a></li>
+            <li><strong>Gobierno del Estado de Veracruz.</strong> Centro de Rehabilitación e Inclusión Social de Veracruz. Consulta 2026. <a href="https://www.difver.gob.mx/rehabilitacion/" target="_blank">https://www.difver.gob.mx/rehabilitacion/</a></li>
+            <li><strong>Sistema DIF Sonora.</strong> Atención a personas con discapacidad. Consulta 2026. <a href="https://dif.sonora.gob.mx" target="_blank">https://dif.sonora.gob.mx</a></li>
+            <li><strong>Secretaría de Bienestar.</strong> Pensión para el Bienestar de las Personas con Discapacidad Permanente 2026. <a href="https://www.gob.mx/bienestar/documentos/personas-con-discapacidad-250279" target="_blank">https://www.gob.mx/bienestar/documentos/personas-con-discapacidad-250279</a></li>
+            <li><strong>Instituto Nacional de Rehabilitación Luis Guillermo Ibarra Ibarra (INRLGII).</strong> Consulta 2026. <a href="https://www.inr.gob.mx/" target="_blank">https://www.inr.gob.mx/</a></li>
+        </ol>
+    </div>
+
+    <h2 class="section-title">Bibliografías --- Nivel Mundial</h2>
+
+    <div class="bibliography-card">
+        <ol class="bibliography-list">
+            <li><strong>Organización Mundial de la Salud (OMS).</strong> World Rehabilitation Alliance. 2026. <a href="https://www.who.int/initiatives/world-rehabilitation-alliance" target="_blank">https://www.who.int/initiatives/world-rehabilitation-alliance</a></li>
+            <li><strong>Naciones Unidas.</strong> United Nations Disability Inclusion Strategy. 2026. <a href="https://www.un.org/en/disabilitystrategy" target="_blank">https://www.un.org/en/disabilitystrategy</a></li>
+            <li><strong>CBM Global Disability Inclusion.</strong> Disability Inclusion. 2026. <a href="https://cbm-global.org" target="_blank">https://cbm-global.org</a></li>
+            <li><strong>Humanity &amp; Inclusion (HI).</strong> 2026. <a href="https://www.hi.org" target="_blank">https://www.hi.org</a></li>
+            <li><strong>Inclusion International.</strong> Red internacional de personas con discapacidad intelectual y sus familias. 2026. <a href="https://inclusion-international.org" target="_blank">https://inclusion-international.org</a></li>
+            <li><strong>International Disability Alliance.</strong> International Disability Alliance. 2026. <a href="https://www.internationaldisabilityalliance.org" target="_blank">https://www.internationaldisabilityalliance.org</a></li>
+            <li><strong>Rehabilitation International.</strong> Rehabilitation International. 2026. <a href="https://www.riglobal.org" target="_blank">https://www.riglobal.org</a></li>
+            <li><strong>World Federation of the Deaf.</strong> World Federation of the Deaf. 2026. <a href="https://wfdeaf.org" target="_blank">https://wfdeaf.org</a></li>
+            <li><strong>World Blind Union.</strong> World Blind Union. 2026. <a href="https://wbu.ngo" target="_blank">https://wbu.ngo</a></li>
+            <li><strong>International Society of Physical and Rehabilitation Medicine.</strong> ISPRM. 2026. <a href="https://isprm.org" target="_blank">https://isprm.org</a></li>
+        </ol>
+    </div>
+    </main>
+        
+    </div>
+</body>
+</html>
